@@ -14,11 +14,11 @@
 
 ## Solver
 
-- [ ] Implement legal placements and the no-four-corners rule test-first.
+- [x] Implement legal placements and the no-four-corners rule test-first.
   - Acceptance: fixed placements are honored and every completed vertex is valid.
   - Verify: focused solver rule tests pass.
   - Files: `src/tatamifit/solver.py`, `tests/test_solver.py`.
-- [ ] Implement preference-maximizing exact search and deterministic no-layout result.
+- [x] Implement preference-maximizing exact search and deterministic no-layout result.
   - Acceptance: small exhaustive oracle cases agree; valid unsatisfiable input returns none.
   - Verify: full solver tests pass with no skipped cases.
   - Files: `src/tatamifit/solver.py`, `tests/test_solver.py`.
