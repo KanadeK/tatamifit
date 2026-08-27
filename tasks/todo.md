@@ -25,7 +25,7 @@
 
 ## Product path
 
-- [ ] Implement deterministic JSON/SVG/text renderers and atomic CLI output.
+- [x] Implement deterministic JSON/SVG/text renderers and atomic CLI output.
   - Acceptance: success writes three agreeing files; exit 1/2 writes no output directory.
   - Verify: CLI integration tests execute the real parser, solver, and filesystem.
   - Files: `src/tatamifit/render.py`, `src/tatamifit/cli.py`, `tests/test_cli.py`.
