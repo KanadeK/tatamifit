@@ -2,11 +2,11 @@
 
 ## Contract and model
 
-- [ ] Add `pyproject.toml`, package skeleton, and locked dev environment.
+- [x] Add `pyproject.toml`, package skeleton, and locked dev environment.
   - Acceptance: import target and test discovery exist without implementation behavior.
   - Verify: the first model test fails for the expected missing behavior.
   - Files: `pyproject.toml`, `src/tatamifit/__init__.py`, `tests/test_model.py`.
-- [ ] Implement strict room parsing and placement validation.
+- [x] Implement strict room parsing and placement validation.
   - Acceptance: valid input becomes typed immutable data; malformed boundaries have stable
     codes and repair text.
   - Verify: focused model tests, Ruff, and mypy pass.

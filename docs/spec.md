@@ -27,7 +27,7 @@ to retain, show one valid layout or tell me exactly why the request cannot be pr
 - Python 3.11 or newer.
 - Python standard library only at runtime.
 - `pytest`, `pytest-cov`, Ruff, mypy, and `build` as locked development tools.
-- `hatchling` build backend; wheel and source distribution release assets.
+- `uv_build` build backend; wheel and source distribution release assets.
 - GitHub Actions calling the same repository gate as local development.
 
 ## Commands
