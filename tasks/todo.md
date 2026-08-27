@@ -29,7 +29,7 @@
   - Acceptance: success writes three agreeing files; exit 1/2 writes no output directory.
   - Verify: CLI integration tests execute the real parser, solver, and filesystem.
   - Files: `src/tatamifit/render.py`, `src/tatamifit/cli.py`, `tests/test_cli.py`.
-- [ ] Add examples, README, CI, and the single local/release gate.
+- [x] Add examples, README, CI, and the single local/release gate.
   - Acceptance: all documented primary commands are exercised by the gate.
   - Verify: `uv run python scripts/check.py` passes, including clean wheel install.
   - Files: `examples/*`, `README.md`, `scripts/check.py`, `.github/workflows/ci.yml`.

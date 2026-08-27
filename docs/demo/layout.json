@@ -1,0 +1,172 @@
+{
+  "schema_version": 1,
+  "generator": {
+    "name": "TatamiFit",
+    "version": "0.1.0"
+  },
+  "status": "layout_found",
+  "room": {
+    "name": "TatamiFit repair demo",
+    "width": 4,
+    "height": 4,
+    "blocked": []
+  },
+  "summary": {
+    "mat_count": 8,
+    "fixed_count": 0,
+    "preferred_count": 8,
+    "retained_count": 4,
+    "changed_count": 4,
+    "search_nodes": 50
+  },
+  "rules": {
+    "no_four_corners": true,
+    "violations": []
+  },
+  "placements": [
+    {
+      "id": "M01",
+      "x": 0,
+      "y": 0,
+      "orientation": "horizontal",
+      "cells": [
+        {
+          "x": 0,
+          "y": 0
+        },
+        {
+          "x": 1,
+          "y": 0
+        }
+      ],
+      "fixed": false,
+      "retained_preferred": true
+    },
+    {
+      "id": "M02",
+      "x": 2,
+      "y": 0,
+      "orientation": "horizontal",
+      "cells": [
+        {
+          "x": 2,
+          "y": 0
+        },
+        {
+          "x": 3,
+          "y": 0
+        }
+      ],
+      "fixed": false,
+      "retained_preferred": true
+    },
+    {
+      "id": "M03",
+      "x": 0,
+      "y": 1,
+      "orientation": "vertical",
+      "cells": [
+        {
+          "x": 0,
+          "y": 1
+        },
+        {
+          "x": 0,
+          "y": 2
+        }
+      ],
+      "fixed": false,
+      "retained_preferred": false
+    },
+    {
+      "id": "M04",
+      "x": 1,
+      "y": 1,
+      "orientation": "horizontal",
+      "cells": [
+        {
+          "x": 1,
+          "y": 1
+        },
+        {
+          "x": 2,
+          "y": 1
+        }
+      ],
+      "fixed": false,
+      "retained_preferred": false
+    },
+    {
+      "id": "M05",
+      "x": 3,
+      "y": 1,
+      "orientation": "vertical",
+      "cells": [
+        {
+          "x": 3,
+          "y": 1
+        },
+        {
+          "x": 3,
+          "y": 2
+        }
+      ],
+      "fixed": false,
+      "retained_preferred": false
+    },
+    {
+      "id": "M06",
+      "x": 1,
+      "y": 2,
+      "orientation": "horizontal",
+      "cells": [
+        {
+          "x": 1,
+          "y": 2
+        },
+        {
+          "x": 2,
+          "y": 2
+        }
+      ],
+      "fixed": false,
+      "retained_preferred": false
+    },
+    {
+      "id": "M07",
+      "x": 0,
+      "y": 3,
+      "orientation": "horizontal",
+      "cells": [
+        {
+          "x": 0,
+          "y": 3
+        },
+        {
+          "x": 1,
+          "y": 3
+        }
+      ],
+      "fixed": false,
+      "retained_preferred": true
+    },
+    {
+      "id": "M08",
+      "x": 2,
+      "y": 3,
+      "orientation": "horizontal",
+      "cells": [
+        {
+          "x": 2,
+          "y": 3
+        },
+        {
+          "x": 3,
+          "y": 3
+        }
+      ],
+      "fixed": false,
+      "retained_preferred": true
+    }
+  ]
+}

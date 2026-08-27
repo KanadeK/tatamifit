@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "name": "Disconnected corners",
+  "width": 2,
+  "height": 2,
+  "blocked": [
+    {"x": 0, "y": 0},
+    {"x": 1, "y": 1}
+  ],
+  "fixed": [],
+  "preferred": []
+}
