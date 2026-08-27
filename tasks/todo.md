@@ -36,7 +36,7 @@
 
 ## Review and release
 
-- [ ] Review final diff for correctness, simplicity, architecture, security, and bounded
+- [x] Review final diff for correctness, simplicity, architecture, security, and bounded
   performance; repair required findings.
   - Verify: complete gate passes after the final code change and worktree is clean.
 - [ ] Publish main, verify CI/contributors, tag `v0.1.0`, and publish wheel/sdist Release.

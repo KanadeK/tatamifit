@@ -116,14 +116,15 @@ def test_plan_returns_two_and_writes_nothing_for_invalid_json(
 def test_plan_returns_two_for_missing_input_file(
     tmp_path: Path, capsys: pytest.CaptureFixture[str]
 ) -> None:
+    source = tmp_path / "missing.json"
     output = tmp_path / "should-not-exist"
 
-    exit_code = main(["plan", str(tmp_path / "missing.json"), "--out", str(output)])
+    exit_code = main(["plan", str(source), "--out", str(output)])
 
     assert exit_code == 2
     assert not output.exists()
     captured = capsys.readouterr()
-    assert "ERROR [INPUT_NOT_FOUND]" in captured.err
+    assert f"ERROR [INPUT_NOT_FOUND] Input file does not exist: {source}" in captured.err
     assert "Check the input path" in captured.err
 
 
@@ -142,7 +143,7 @@ def test_plan_preserves_existing_output_directory(
     assert sentinel.read_text(encoding="utf-8") == "owned by user"
     assert {path.name for path in output.iterdir()} == {"keep.txt"}
     captured = capsys.readouterr()
-    assert "ERROR [OUTPUT_EXISTS]" in captured.err
+    assert f"ERROR [OUTPUT_EXISTS] Output path already exists: {output}" in captured.err
     assert "Choose a new --out path" in captured.err
 
 

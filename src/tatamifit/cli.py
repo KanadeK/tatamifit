@@ -31,6 +31,9 @@ class CommandError(Exception):
     message: str
     repair: str
 
+    def __str__(self) -> str:
+        return self.message
+
 
 def main(argv: Sequence[str] | None = None) -> int:
     parser = _parser()
