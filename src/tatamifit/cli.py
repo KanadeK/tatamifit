@@ -86,8 +86,21 @@ def _load_room(path: Path) -> Room:
             f"Could not read {path}: {error}",
             "Check the file permissions and path, then run the same command again.",
         ) from error
+
+    def unique_object(pairs: list[tuple[str, object]]) -> dict[str, object]:
+        decoded_object: dict[str, object] = {}
+        for field, value in pairs:
+            if field in decoded_object:
+                raise CommandError(
+                    "DUPLICATE_FIELD",
+                    f"Duplicate JSON field {field!r}.",
+                    f"Remove one duplicate field named {field!r} so each object field is unique.",
+                )
+            decoded_object[field] = value
+        return decoded_object
+
     try:
-        decoded = json.loads(text)
+        decoded = json.loads(text, object_pairs_hook=unique_object)
     except json.JSONDecodeError as error:
         raise CommandError(
             "INVALID_JSON",

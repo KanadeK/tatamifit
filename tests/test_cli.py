@@ -113,6 +113,27 @@ def test_plan_returns_two_and_writes_nothing_for_invalid_json(
     assert "Repair:" in captured.err
 
 
+def test_plan_rejects_duplicate_json_field(
+    tmp_path: Path, capsys: pytest.CaptureFixture[str]
+) -> None:
+    source = tmp_path / "duplicate.json"
+    source.write_text(
+        '{"schema_version":1,"name":"Duplicate width","width":4,"width":2,'
+        '"height":2,"blocked":[],"fixed":[],"preferred":[]}',
+        encoding="utf-8",
+    )
+    output = tmp_path / "should-not-exist"
+
+    exit_code = main(["plan", str(source), "--out", str(output)])
+
+    assert exit_code == 2
+    assert not output.exists()
+    captured = capsys.readouterr()
+    assert "ERROR [DUPLICATE_FIELD]" in captured.err
+    assert "'width'" in captured.err
+    assert "Remove one duplicate field" in captured.err
+
+
 def test_plan_returns_two_for_missing_input_file(
     tmp_path: Path, capsys: pytest.CaptureFixture[str]
 ) -> None:
