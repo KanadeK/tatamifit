@@ -2,6 +2,13 @@
 
 All notable user-visible changes are recorded here.
 
+## [0.1.1] - 2026-08-30
+
+### Fixed
+
+- Reject duplicate JSON object fields with an actionable `DUPLICATE_FIELD` error instead
+  of silently using the last value.
+
 ## [0.1.0] - 2026-08-27
 
 ### Added

@@ -27,11 +27,11 @@ standalone SVG, or plain text.
 
 ## Install
 
-Python 3.11 or newer is required. Install the verified v0.1.0 wheel directly from its
+Python 3.11 or newer is required. Install the verified v0.1.1 wheel directly from its
 GitHub Release:
 
 ```console
-python -m pip install https://github.com/KanadeK/tatamifit/releases/download/v0.1.0/tatamifit-0.1.0-py3-none-any.whl
+python -m pip install https://github.com/KanadeK/tatamifit/releases/download/v0.1.1/tatamifit-0.1.1-py3-none-any.whl
 ```
 
 TatamiFit has no runtime packages, account, network request, telemetry, or native binary
@@ -185,6 +185,9 @@ Choose a new `--out` path. TatamiFit preserves every existing file and directory
 
 **`ERROR [INVALID_JSON] ... line ... column ...`**
 Correct the reported JSON syntax and save the file as UTF-8.
+
+**`ERROR [DUPLICATE_FIELD] ...`**
+Remove the repeated field so each JSON object names every field only once.
 
 ## Development
 

@@ -115,12 +115,12 @@ def exercise_package(temporary: Path) -> None:
             str(assets),
         ]
     )
-    expected_assets = {"tatamifit-0.1.0-py3-none-any.whl", "tatamifit-0.1.0.tar.gz"}
+    expected_assets = {"tatamifit-0.1.1-py3-none-any.whl", "tatamifit-0.1.1.tar.gz"}
     actual_assets = {path.name for path in assets.iterdir()}
     if actual_assets != expected_assets:
         raise SystemExit(f"unexpected release assets: {sorted(actual_assets)}")
 
-    wheel = assets / "tatamifit-0.1.0-py3-none-any.whl"
+    wheel = assets / "tatamifit-0.1.1-py3-none-any.whl"
     with ZipFile(wheel) as archive:
         names = set(archive.namelist())
         required_modules = {
@@ -140,7 +140,7 @@ def exercise_package(temporary: Path) -> None:
     run([str(clean_python), "-m", "pip", "install", "--no-deps", str(wheel)])
     executable = executable_in(clean_environment, "tatamifit")
     version = run([str(executable), "--version"], capture=True)
-    if version.stdout.strip() != "tatamifit 0.1.0":
+    if version.stdout.strip() != "tatamifit 0.1.1":
         raise SystemExit(f"unexpected installed version output: {version.stdout!r}")
 
     installed_output = temporary / "installed-repair"
@@ -202,23 +202,23 @@ def main() -> int:
     run(["uv", "run", "--no-sync", "ruff", "format", "--check", "."])
     run(["uv", "run", "--no-sync", "ruff", "check", "."])
     run(["uv", "run", "--no-sync", "mypy", "src", "tests", "scripts"])
-    run(
-        [
-            "uv",
-            "run",
-            "--no-sync",
-            "pytest",
-            "--basetemp",
-            str(ROOT / ".test-tmp"),
-            "--cov=tatamifit",
-            "--cov-branch",
-            "--cov-report=term-missing",
-            "--cov-fail-under=90",
-        ]
-    )
-    check_runtime_dependencies()
     with tempfile.TemporaryDirectory(prefix="tatamifit-check-") as directory:
         temporary = Path(directory)
+        run(
+            [
+                "uv",
+                "run",
+                "--no-sync",
+                "pytest",
+                "--basetemp",
+                str(temporary / "pytest"),
+                "--cov=tatamifit",
+                "--cov-branch",
+                "--cov-report=term-missing",
+                "--cov-fail-under=90",
+            ]
+        )
+        check_runtime_dependencies()
         exercise_examples(temporary)
         exercise_package(temporary)
     print("TatamiFit release gate: PASS")
